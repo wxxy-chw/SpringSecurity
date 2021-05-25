@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    <h3>登录成功</h3>
+    <div sec:authorize="isAuthenticated()" >
+        用户:<span sec:authentication="name"></span><br>
+        角色和权限:<span sec:authentication="authorities"></span>
+    </div>
+    <a th:href="@{/index}">index 所有人都可以访问</a><br>
+    <a th:href="@{/hello}">hello </a> <br>
+    <a th:href="@{/user}">user </a> <br>
+    <a th:href="@{/admin}">admin</a> <br>
+    <a th:href="@{/teacher}">teacher</a> <br>
+    <a th:href="@{/student}">student</a> <br>
+    <a th:href="@{/root}">root</a> <br>
+    <a th:href="@{/logout}">注销</a> <br>
+    <h5>通过权限查看</h5>
+    <button sec:authorize="hasAnyAuthority('user,root')">查看</button>
+    <button sec:authorize="hasAuthority('root')">新增</button>
+    <button sec:authorize="hasAuthority('root')">修改</button>
+    <button sec:authorize="hasAuthority('root')">删除</button>
+    <h5>通过角色查看</h5>
+    <button sec:authorize="hasRole('boos')">新增</button>
+    <button sec:authorize="hasRole('boos')">删除</button>
+    <button sec:authorize="hasRole('boos')">修改</button>
+    <button sec:authorize="hasAnyRole('student,boos')">查看</button>
+</body>
+</html>
