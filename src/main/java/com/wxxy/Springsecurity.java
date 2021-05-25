@@ -14,5 +14,6 @@ public class Springsecurity {
         for (String beanDefinitionName : run.getBeanDefinitionNames()) {
             System.out.println(beanDefinitionName);
         }
+        System.out.println("master第二次修改");
     }
 }
