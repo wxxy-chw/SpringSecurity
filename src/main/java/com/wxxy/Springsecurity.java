@@ -17,5 +17,7 @@ public class Springsecurity {
         System.out.println("master第二次修改");
 
         System.out.println("hot-fix第二次提交");
+
+        System.out.println("push");
     }
 }
