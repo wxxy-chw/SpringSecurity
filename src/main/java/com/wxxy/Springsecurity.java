@@ -10,6 +10,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class Springsecurity {
 
     public static void main(String[] args) {
-        SpringApplication.run(Springsecurity.class, args);
+        ConfigurableApplicationContext run = SpringApplication.run(Springsecurity.class, args);
+        for (String beanDefinitionName : run.getBeanDefinitionNames()) {
+            System.out.println(beanDefinitionName);
+        }
     }
 }
